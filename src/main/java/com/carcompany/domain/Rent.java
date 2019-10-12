@@ -3,6 +3,7 @@ package com.carcompany.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -11,7 +12,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Entity(name = "\"rent\"")
+@Setter
+@Entity(name = "rents")
 public class Rent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

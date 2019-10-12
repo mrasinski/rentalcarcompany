@@ -20,7 +20,7 @@ public class CarService {
         return carRepository.findById(carId);
     }
 
-    public Car save(final Car car) {
+    public Car saveCar(final Car car) {
         return carRepository.save(car);
     }
 

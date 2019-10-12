@@ -1,14 +1,13 @@
 package com.carcompany.domain;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity(name = "\"car\"")
+@Entity(name = "cars")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

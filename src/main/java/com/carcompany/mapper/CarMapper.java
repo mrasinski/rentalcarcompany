@@ -9,19 +9,6 @@ import java.util.stream.Collectors;
 
 @Component
 public class CarMapper {
-    public Car mapCarDtoToCar(final CarDto carDto) {
-        return new Car(
-                carDto.getId(),
-                carDto.getCompany(),
-                carDto.getModel(),
-                carDto.getColor(),
-                carDto.getYearOfProduction(),
-                carDto.getHorsePower(),
-                carDto.getEngine(),
-                carDto.isAutomatic()
-        );
-    }
-
     public CarDto mapCarToCarDto(final Car car) {
         return new CarDto(
                 car.getId(),
@@ -32,6 +19,19 @@ public class CarMapper {
                 car.getHorsePower(),
                 car.getEngine(),
                 car.isAutomatic()
+        );
+    }
+
+    public Car mapCarDtoToCar(final CarDto carDto) {
+        return new Car(
+                carDto.getId(),
+                carDto.getCompany(),
+                carDto.getModel(),
+                carDto.getColor(),
+                carDto.getYearOfProduction(),
+                carDto.getHorsePower(),
+                carDto.getEngine(),
+                carDto.isAutomatic()
         );
     }
 

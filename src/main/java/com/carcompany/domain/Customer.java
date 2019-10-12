@@ -11,9 +11,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity(name = "\"customer\"")
+@Entity(name = "customers")
 public class Customer {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

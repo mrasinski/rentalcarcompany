@@ -21,7 +21,7 @@ public class RentService {
         return rentRepository.findById(rentId);
     }
 
-    public Rent save(final Rent rent) {
+    public Rent saveRent(final Rent rent) {
         return rentRepository.save(rent);
     }
 

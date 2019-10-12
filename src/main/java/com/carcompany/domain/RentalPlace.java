@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity(name = "\"rentalPlace\"")
+@Entity(name = "rentalPlaces")
 public class RentalPlace {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

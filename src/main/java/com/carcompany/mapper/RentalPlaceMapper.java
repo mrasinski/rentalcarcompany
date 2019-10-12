@@ -8,21 +8,21 @@ import java.util.stream.Collectors;
 
 @Component
 public class RentalPlaceMapper {
-    public RentalPlace mapRentalPlaceDtoToRentalPlace(final RentalPlaceDto rentalPlaceDto) {
-        return new RentalPlace(
-                rentalPlaceDto.getId(),
-                rentalPlaceDto.getCity(),
-                rentalPlaceDto.getCountry(),
-                rentalPlaceDto.getStreet()
-        );
-    }
-
     public RentalPlaceDto mapRentalPlaceToRentalPlaceDto(final RentalPlace rentalPlace) {
         return new RentalPlaceDto(
                 rentalPlace.getId(),
                 rentalPlace.getCity(),
                 rentalPlace.getCountry(),
                 rentalPlace.getStreet()
+        );
+    }
+
+    public RentalPlace mapRentalPlaceDtoToRentalPlace(final RentalPlaceDto rentalPlaceDto) {
+        return new RentalPlace(
+                rentalPlaceDto.getId(),
+                rentalPlaceDto.getCity(),
+                rentalPlaceDto.getCountry(),
+                rentalPlaceDto.getStreet()
         );
     }
 
