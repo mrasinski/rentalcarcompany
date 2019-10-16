@@ -18,7 +18,8 @@ public class CarMapper {
                 car.getYearOfProduction(),
                 car.getHorsePower(),
                 car.getEngine(),
-                car.isAutomatic()
+                car.isAutomatic(),
+                car.getDailyPrice()
         );
     }
 
@@ -31,14 +32,15 @@ public class CarMapper {
                 carDto.getYearOfProduction(),
                 carDto.getHorsePower(),
                 carDto.getEngine(),
-                carDto.isAutomatic()
+                carDto.isAutomatic(),
+                carDto.getDailyPrice()
         );
     }
 
     public List<CarDto> mapCarListToCarDtoList(final List<Car> carList) {
         return carList.stream()
                 .map(car -> new CarDto(car.getId(), car.getCompany(), car.getModel(), car.getColor(), car.getYearOfProduction(),
-                        car.getHorsePower(), car.getEngine(), car.isAutomatic()))
+                        car.getHorsePower(), car.getEngine(), car.isAutomatic(), car.getDailyPrice()))
                 .collect(Collectors.toList());
     }
 }

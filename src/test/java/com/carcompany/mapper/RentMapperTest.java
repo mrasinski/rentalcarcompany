@@ -8,12 +8,11 @@ import com.carcompany.domain.dto.CarDto;
 import com.carcompany.domain.dto.CustomerDto;
 import com.carcompany.domain.dto.RentDto;
 import com.carcompany.domain.dto.RentalPlaceDto;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -22,18 +21,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-class RentMapperTest {
+public class RentMapperTest {
     @Autowired
     private RentMapper rentMapper;
 
     @Test
-    void mapRentToRentDto() {
+    public void testMapRentToRentDto() {
         //Given
         Customer customer = new Customer(1L, "Aleks", "John", LocalDate.of(1980, 10, 19), "CAE12341");
-        Car car = new Car(1L, "BMW", "1", "Black", 2019, 380, 4, true);
+        Car car = new Car(1L, "BMW", "1", "Black", 2019, 380, 4, true, 120L);
         RentalPlace rentalPlace = new RentalPlace(1L, "Warsaw", "Poland", "Domaniewska 39a");
         Rent rent = new Rent(1L, customer, car, rentalPlace, LocalDateTime.of(2019, 10, 12, 14, 25),
-                LocalDateTime.of(2019, 10, 14, 15, 0), new BigDecimal(123.23));
+                LocalDateTime.of(2019, 10, 14, 15, 0));
 
         //When
         RentDto mappedRent = rentMapper.mapRentToRentDto(rent);
@@ -45,17 +44,17 @@ class RentMapperTest {
         assertEquals("Warsaw", mappedRent.getRentalPlaceDto().getCity());
         assertEquals(LocalDateTime.of(2019, 10, 12, 14, 25), mappedRent.getRentStart());
         assertEquals(LocalDateTime.of(2019, 10, 14, 15, 0), mappedRent.getRentStop());
-        assertEquals(new BigDecimal(123.23), mappedRent.getPriceOfRent());
+        assertEquals(new Long(240), mappedRent.getPriceOfRent());
     }
 
     @Test
-    void mapRentDtoToRent() {
+    public void testMapRentDtoToRent() {
         //Given
         CustomerDto customerDto = new CustomerDto(1L, "Aleks", "John", LocalDate.of(1980, 10, 19), "CAE12341");
-        CarDto carDto = new CarDto(1L, "BMW", "1", "Black", 2019, 380, 4, true);
+        CarDto carDto = new CarDto(1L, "BMW", "1", "Black", 2019, 380, 4, true, 120L);
         RentalPlaceDto rentalPlaceDto = new RentalPlaceDto(1L, "Warsaw", "Poland", "Domaniewska 39a");
         RentDto rentDto = new RentDto(1L, customerDto, carDto, rentalPlaceDto, LocalDateTime.of(2019, 10, 12, 14, 25),
-                LocalDateTime.of(2019, 10, 14, 15, 0), new BigDecimal(123.23));
+                LocalDateTime.of(2019, 10, 14, 15, 0));
 
         //When
         Rent mappedRent = rentMapper.mapRentDtoToRent(rentDto);
@@ -67,19 +66,19 @@ class RentMapperTest {
         assertEquals("Warsaw", mappedRent.getRentalPlace().getCity());
         assertEquals(LocalDateTime.of(2019, 10, 12, 14, 25), mappedRent.getRentStart());
         assertEquals(LocalDateTime.of(2019, 10, 14, 15, 0), mappedRent.getRentStop());
-        assertEquals(new BigDecimal(123.23), mappedRent.getPriceOfRent());
+        assertEquals(new Long(240), mappedRent.getPriceOfRent());
     }
 
     @Test
-    void mapRentListToRentDtoList() {
+    public void testMapRentListToRentDtoList() {
         //Given
         Customer customer = new Customer(1L, "Aleks", "John", LocalDate.of(1980, 10, 19), "CAE12341");
-        Car car = new Car(1L, "BMW", "1", "Black", 2019, 380, 4, true);
+        Car car = new Car(1L, "BMW", "1", "Black", 2019, 380, 4, true, 120L);
         RentalPlace rentalPlace = new RentalPlace(1L, "Warsaw", "Poland", "Domaniewska 39a");
         Rent rent1 = new Rent(1L, customer, car, rentalPlace, LocalDateTime.of(2019, 10, 12, 14, 25),
-                LocalDateTime.of(2019, 10, 14, 15, 0), new BigDecimal(123.23));
+                LocalDateTime.of(2019, 10, 14, 15, 0));
         Rent rent2 = new Rent(2L, customer, car, rentalPlace, LocalDateTime.of(2019, 7, 13, 14, 25),
-                LocalDateTime.of(2019, 7, 14, 19, 0), new BigDecimal(1593.23));
+                LocalDateTime.of(2019, 7, 14, 19, 0));
         List<Rent> rentList = new ArrayList<>();
         rentList.add(rent1);
         rentList.add(rent2);

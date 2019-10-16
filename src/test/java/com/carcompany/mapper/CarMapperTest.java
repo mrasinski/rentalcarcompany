@@ -2,7 +2,7 @@ package com.carcompany.mapper;
 
 import com.carcompany.domain.Car;
 import com.carcompany.domain.dto.CarDto;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,14 +13,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-class CarMapperTest {
+public class CarMapperTest {
     @Autowired
     private CarMapper carMapper;
 
     @Test
     public void testMapCarDtoToCar() {
         //Given
-        CarDto carDto = new CarDto(1L, "BMW", "1", "Black", 2019, 380, 4, true);
+        CarDto carDto = new CarDto(
+                1L,
+                "BMW",
+                "1",
+                "Black",
+                2019,
+                380,
+                4,
+                true,
+                120L);
 
         //When
         Car car = carMapper.mapCarDtoToCar(carDto);
@@ -34,12 +43,22 @@ class CarMapperTest {
         assertEquals(380, car.getHorsePower());
         assertEquals(4, car.getEngine());
         assertTrue(car.isAutomatic());
+        assertEquals(new Long(120L), car.getDailyPrice());
     }
 
     @Test
     public void testMapCarToCarDto() {
         //Given
-        Car car = new Car(1L, "BMW", "1", "Black", 2019, 380, 4, true);
+        Car car = new Car(
+                1L,
+                "BMW",
+                "1",
+                "Black",
+                2019,
+                380,
+                4,
+                true,
+                120L);
 
         //When
         CarDto carDto = carMapper.mapCarToCarDto(car);
@@ -53,13 +72,32 @@ class CarMapperTest {
         assertEquals(380, carDto.getHorsePower());
         assertEquals(4, carDto.getEngine());
         assertTrue(carDto.isAutomatic());
+        assertEquals(new Long(120L), carDto.getDailyPrice());
     }
 
     @Test
     public void testMapCarListToCarDtoList() {
         //Given
-        Car car1 = new Car(1L, "BMW", "1", "Black", 2019, 380, 4, true);
-        Car car2 = new Car(2L, "BMW", "1", "Black", 2019, 380, 4, true);
+        Car car1 = new Car(
+                1L,
+                "BMW",
+                "1",
+                "Black",
+                2019,
+                380,
+                4,
+                true,
+                120L);
+        Car car2 = new Car(
+                2L,
+                "BMW",
+                "1",
+                "Black",
+                2019,
+                380,
+                4,
+                true,
+                130L);
         List<Car> carList = new ArrayList<>();
         carList.add(car1);
         carList.add(car2);

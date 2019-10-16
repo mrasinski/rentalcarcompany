@@ -25,8 +25,7 @@ public class RentMapper {
                 carMapper.mapCarToCarDto(rent.getCar()),
                 rentalPlaceMapper.mapRentalPlaceToRentalPlaceDto(rent.getRentalPlace()),
                 rent.getRentStart(),
-                rent.getRentStop(),
-                rent.getPriceOfRent()
+                rent.getRentStop()
         );
     }
 
@@ -37,8 +36,7 @@ public class RentMapper {
                 carMapper.mapCarDtoToCar(rentDto.getCarDto()),
                 rentalPlaceMapper.mapRentalPlaceDtoToRentalPlace(rentDto.getRentalPlaceDto()),
                 rentDto.getRentStart(),
-                rentDto.getRentStop(),
-                rentDto.getPriceOfRent()
+                rentDto.getRentStop()
         );
     }
 
@@ -50,8 +48,7 @@ public class RentMapper {
                         carMapper.mapCarToCarDto(rent.getCar()),
                         rentalPlaceMapper.mapRentalPlaceToRentalPlaceDto(rent.getRentalPlace()),
                         rent.getRentStart(),
-                        rent.getRentStop(),
-                        rent.getPriceOfRent()))
+                        rent.getRentStop()))
                 .collect(Collectors.toList());
     }
 }

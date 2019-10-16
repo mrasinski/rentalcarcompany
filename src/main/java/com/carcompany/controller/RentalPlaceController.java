@@ -20,7 +20,7 @@ public class RentalPlaceController {
     private RentalPlaceMapper rentalPlaceMapper;
 
     @GetMapping(value = "/rentalPlaces")
-    public List<RentalPlaceDto> getRentalPlace() {
+    public List<RentalPlaceDto> getRentalPlaces() {
         return rentalPlaceMapper.mapRentalPlaceListToRentalPlaceDtoList(rentalPlaceService.getAllRentalPlaces());
     }
 
@@ -35,12 +35,12 @@ public class RentalPlaceController {
     }
 
     @PostMapping(value = "/rentalPlaces", consumes = APPLICATION_JSON_VALUE)
-    public RentalPlaceDto createCar(@RequestBody RentalPlaceDto rentalPlaceDto) {
+    public RentalPlaceDto createRentalPlace(@RequestBody RentalPlaceDto rentalPlaceDto) {
         return rentalPlaceMapper.mapRentalPlaceToRentalPlaceDto(rentalPlaceService.saveRentalPlace(rentalPlaceMapper.mapRentalPlaceDtoToRentalPlace(rentalPlaceDto)));
     }
 
     @PutMapping(value = "/rentalPlaces")
-    public RentalPlaceDto updateCar(@RequestBody RentalPlaceDto rentalPlaceDto) {
+    public RentalPlaceDto updateRentalPlace(@RequestBody RentalPlaceDto rentalPlaceDto) {
         return rentalPlaceMapper.mapRentalPlaceToRentalPlaceDto(rentalPlaceService.saveRentalPlace(rentalPlaceMapper.mapRentalPlaceDtoToRentalPlace(rentalPlaceDto)));
     }
 }

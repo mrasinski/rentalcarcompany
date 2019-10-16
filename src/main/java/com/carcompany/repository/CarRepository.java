@@ -17,7 +17,4 @@ public interface CarRepository extends CrudRepository<Car, Long> {
 
     @Override
     void deleteById(Long carId);
-
-    @Override
-    long count();
 }

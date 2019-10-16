@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 public class RentDto {
@@ -16,5 +16,15 @@ public class RentDto {
     private RentalPlaceDto rentalPlaceDto;
     private LocalDateTime rentStart;
     private LocalDateTime rentStop;
-    private BigDecimal priceOfRent;
+    private Long priceOfRent;
+
+    public RentDto(Long id, CustomerDto customerDto, CarDto carDto, RentalPlaceDto rentalPlaceDto, LocalDateTime rentStart, LocalDateTime rentStop) {
+        this.id = id;
+        this.customerDto = customerDto;
+        this.carDto = carDto;
+        this.rentalPlaceDto = rentalPlaceDto;
+        this.rentStart = rentStart;
+        this.rentStop = rentStop;
+        this.priceOfRent = ChronoUnit.DAYS.between(rentStart, rentStop) * carDto.getDailyPrice();
+    }
 }

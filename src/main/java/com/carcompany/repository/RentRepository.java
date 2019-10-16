@@ -18,7 +18,4 @@ public interface RentRepository extends CrudRepository<Rent, Long> {
 
     @Override
     void deleteById(Long rentId);
-
-    @Override
-    long count();
 }

@@ -1,15 +1,12 @@
 package com.carcompany.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import static java.time.temporal.ChronoUnit.DAYS;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -38,5 +35,15 @@ public class Rent {
     private LocalDateTime rentStop;
 
     @Column(name = "price")
-    private BigDecimal priceOfRent;
+    private Long priceOfRent;
+
+    public Rent(Long id, Customer customer, Car car, RentalPlace rentalPlace, LocalDateTime rentStart, LocalDateTime rentStop) {
+        this.id = id;
+        this.customer = customer;
+        this.car = car;
+        this.rentalPlace = rentalPlace;
+        this.rentStart = rentStart;
+        this.rentStop = rentStop;
+        this.priceOfRent = DAYS.between(rentStart, rentStop) * car.getDailyPrice();
+    }
 }

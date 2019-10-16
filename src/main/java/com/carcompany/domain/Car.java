@@ -33,4 +33,7 @@ public class Car {
 
     @Column(name = "isAutomatic")
     private boolean isAutomatic;
+
+    @Column(name = "dailyPrice")
+    private Long dailyPrice;
 }

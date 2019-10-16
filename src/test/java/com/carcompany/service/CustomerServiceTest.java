@@ -2,7 +2,7 @@ package com.carcompany.service;
 
 import com.carcompany.domain.Customer;
 import com.carcompany.repository.CustomerRepository;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-class CustomerServiceTest {
+public class CustomerServiceTest {
     @Autowired
     private CustomerService customerService;
 
@@ -43,7 +43,7 @@ class CustomerServiceTest {
     }
 
     @Test
-    public void testGetCar() {
+    public void testGetCustomer() {
         //Given
         Customer customer = new Customer();
         customerService.saveCustomer(customer);
@@ -59,7 +59,7 @@ class CustomerServiceTest {
     }
 
     @Test
-    public void testDeleteCar() {
+    public void testDeleteCustomer() {
         //Given
         Customer customer = new Customer();
         customerService.saveCustomer(customer);

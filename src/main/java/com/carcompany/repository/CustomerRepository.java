@@ -18,7 +18,4 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
     @Override
     void deleteById(Long customerId);
-
-    @Override
-    long count();
 }

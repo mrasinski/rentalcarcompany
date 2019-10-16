@@ -16,4 +16,5 @@ public class CarDto {
     private int horsePower;
     private int engine;
     private boolean isAutomatic;
+    private Long dailyPrice;
 }
